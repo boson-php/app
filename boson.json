@@ -1,0 +1,36 @@
+{
+    "name": "app",
+    "arch": [
+        "amd64",
+        "aarch64"
+    ],
+    "platform": [
+        "windows",
+        "linux",
+        "macos"
+    ],
+    "entrypoint": "index.php",
+    "output": ".\/build",
+    "build": {
+        "directories": [
+            "public"
+        ],
+        "finder": [
+            {
+                "directory": "src",
+                "name": "*.php"
+            },
+            {
+                "directory": "vendor",
+                "name": "*.php"
+            },
+            {
+                "directory": "vendor\/boson-php\/runtime\/resources\/dist",
+                "name": "*.js"
+            }
+        ]
+    },
+    "ini": {
+        "memory_limit": "128M"
+    }
+}

@@ -1,0 +1,12 @@
+/.idea
+/.cursor
+/.claude
+/.vscode
+/.zed
+/.fleet
+/build
+/vendor
+/node_modules
+/public/build
+/public/hot
+.phpunit.result.cache
