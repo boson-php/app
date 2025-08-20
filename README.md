@@ -21,7 +21,7 @@ Boson package is available as Composer repository and can
 be installed using the following command in a root of your project:
 
 ```bash
-composer create-project boson-php/app
+composer create-project boson-php/app boson-app
 ```
 
 ## Documentation
