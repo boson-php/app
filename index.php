@@ -13,7 +13,7 @@ require __DIR__ . '/vendor/autoload.php';
 $app = new Boson\Application(
     info: new ApplicationCreateInfo(
         schemes: ['static'],
-        debug: true,
+        debug: false,
     ),
 );
 
