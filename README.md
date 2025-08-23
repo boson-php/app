@@ -4,17 +4,6 @@
 
 ---
 
-<p align="center">
-    <a href="https://packagist.org/packages/boson-php/runtime"><img src="https://poser.pugx.org/boson-php/runtime/require/php?style=for-the-badge" alt="PHP 8.4+"></a>
-    <a href="https://packagist.org/packages/boson-php/runtime"><img src="https://poser.pugx.org/boson-php/runtime/version?style=for-the-badge" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/boson-php/runtime"><img src="https://poser.pugx.org/boson-php/runtime/v/unstable?style=for-the-badge" alt="Latest Unstable Version"></a>
-    <a href="https://raw.githubusercontent.com/boson-php/boson/blob/master/LICENSE"><img src="https://poser.pugx.org/boson-php/runtime/license?style=for-the-badge" alt="License MIT"></a>
-    <a href="https://t.me/boson_php"><img src="https://img.shields.io/static/v1?label=&message=Join+To+Community&color=24A1DE&style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
-</p>
-<p align="center">
-    <a href="https://github.com/boson-php/runtime/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/boson-php/boson/tests.yml?label=Tests&style=flat-square&logo=unpkg"></a>
-</p>
-
 ## Installation
 
 Boson package is available as Composer repository and can 
@@ -24,23 +13,31 @@ be installed using the following command in a root of your project:
 composer create-project boson-php/app my-project --stability=dev --prefer-dist
 ```
 
-## Documentation
+After installation, navigate to your project directory and run the application:
 
-- You can learn more [about what a Boson is](https://bosonphp.com/introduction.html).
-- Information [about the configs](https://bosonphp.com/configuration.html) is 
-  available on the [corresponding pages](https://bosonphp.com/application-configuration.html).
-- A more detailed description of working with the [application](https://bosonphp.com/application.html), 
-  [windows](https://bosonphp.com/window.html) and [webview](https://bosonphp.com/webview.html) 
-  is also available.
-- Also, do not miss the detailed guide on additional apps for working with 
-  [function bindings](https://bosonphp.com/bindings-api.html),
-  [scripts](https://bosonphp.com/scripts-api.html),
-  [request interception](https://bosonphp.com/schemes-api.html), and more.
-- If you want to build an application based on 
-  [Symfony](https://bosonphp.com/symfony-adapter.html), 
-  [Laravel](https://bosonphp.com/laravel-adapter.html) and 
-  [others](https://bosonphp.com/psr7-adapter.html), 
-  then similar functionality is also available.
+```bash
+cd my-project
+php index.php
+```
+
+The desktop application will open. 
+
+Note that BosonPHP is a tool for creating desktop applications, so you don't need a web server or browser - just run the PHP script directly from the console.
+
+## Compilation
+
+Once you've finished developing your application, you can compile it into a native executable:
+
+```bash
+composer compile
+```
+
+The compiled executable will be available in the `build/` directory for your platform. You can configure which platforms to compile for in the `boson.json` file.
+
+## Links
+
+- [BosonPHP repository](https://github.com/boson-php/boson).
+- [Documentation](https://bosonphp.com/doc).
 
 ## Community
 

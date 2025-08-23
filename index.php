@@ -36,7 +36,6 @@ $app->webview->html = <<<HTML
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero</title>
     <link href="static://localhost/css/app.css" rel="stylesheet" media="screen">
 </head>
 <body>
