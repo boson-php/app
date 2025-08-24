@@ -19,7 +19,7 @@ $app = new Boson\Application(
 
 $static = new FilesystemStaticProvider([__DIR__ . '/public']);
 
-$app->on(function (SchemeRequestReceived $e) use ($static): void {
+$app->on(static function (SchemeRequestReceived $e) use ($static): void {
     $e->response = $static->findFileByRequest($e->request);
 });
 
