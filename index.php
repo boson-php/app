@@ -30,4 +30,4 @@ $app->window->title = 'BosonPHP';
 $app->window->size->width = 1100;
 $app->window->size->height = 700;
 
-$app->webview->html = require __DIR__ . '/templates/layout/main.php';
+$app->webview->html = file_get_contents(__DIR__ . '/templates/layout/main.php');
