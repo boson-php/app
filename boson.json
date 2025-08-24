@@ -10,7 +10,7 @@
         "macos"
     ],
     "entrypoint": "index.php",
-    "output": ".\/build",
+    "output": "./build",
     "build": {
         "directories": [
             "public"
@@ -25,7 +25,7 @@
                 "name": "*.php"
             },
             {
-                "directory": "vendor\/boson-php\/runtime\/resources\/dist",
+                "directory": "vendor/boson-php/runtime/resources/dist",
                 "name": "*.js"
             }
         ]
