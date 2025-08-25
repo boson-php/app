@@ -6,5 +6,8 @@
         <propertyValue xpath="/output">
             <directories xpath="$project"/>
         </propertyValue>
+        <propertyValue xpath="/build/finder/*/directory">
+            <directories xpath="$project"/>
+        </propertyValue>
     </definitions>
 </meta-storm>
