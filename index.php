@@ -34,8 +34,7 @@ $app->on(static function (SchemeRequestReceived $e) use ($static): void {
     );
 });
 
-foreach (require __DIR__ . '/src/components.php' as $name => $component) {
-    $app->webview->components->add($name, $component);
-}
+$app->webview->components->add('app-logo', \App\Components\Logo::class);
+$app->webview->components->add('app-headlines', \App\Components\Headlines::class);
 
 $app->webview->url = 'boson://index';
