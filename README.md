@@ -20,7 +20,7 @@ cd my-project
 php index.php
 ```
 
-The desktop application will open. 
+The desktop application will open.
 
 Note that BosonPHP is a tool for creating desktop applications, so you don't need a web server or browser - just run the PHP script directly from the console.
 

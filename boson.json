@@ -13,7 +13,7 @@
     "output": "./build",
     "build": {
         "directories": [
-            "public"
+            "assets"
         ],
         "finder": [
             {

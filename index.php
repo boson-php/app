@@ -2,32 +2,40 @@
 
 declare(strict_types=1);
 
-use App\Components\Headlines;
-use App\Components\Logo;
+use Boson\Application;
 use Boson\ApplicationCreateInfo;
+use Boson\Component\Http\Response;
 use Boson\Component\Http\Static\FilesystemStaticProvider;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
+use Boson\Window\WindowCreateInfo;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$app = new Boson\Application(
-    info: new ApplicationCreateInfo(
-        schemes: ['static'],
-        debug: false,
+$app = new Application(new ApplicationCreateInfo(
+    schemes: ['boson'],
+    debug: false,
+    window: new WindowCreateInfo(
+        width: 800,
+        height: 600,
     ),
-);
+));
 
-$static = new FilesystemStaticProvider([__DIR__ . '/public']);
+$static = new FilesystemStaticProvider([__DIR__ . '/assets']);
 
 $app->on(static function (SchemeRequestReceived $e) use ($static): void {
     $e->response = $static->findFileByRequest($e->request);
+
+    if ($e->response !== null) {
+        return;
+    }
+
+    $e->response = new Response(
+        body: file_get_contents(__DIR__ . '/assets/view/layout/main.html'),
+    );
 });
 
-$app->webview->components->add('head-lines', Headlines::class);
-$app->webview->components->add('logo-hero', Logo::class);
+foreach (require __DIR__ . '/src/components.php' as $name => $component) {
+    $app->webview->components->add($name, $component);
+}
 
-$app->window->title = 'BosonPHP';
-$app->window->size->width = 1100;
-$app->window->size->height = 700;
-
-$app->webview->html = file_get_contents(__DIR__ . '/templates/layout/main.php');
+$app->webview->url = 'boson://index';
