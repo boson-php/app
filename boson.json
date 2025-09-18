@@ -11,6 +11,9 @@
     ],
     "entrypoint": "index.php",
     "output": "./build",
+    "mount": [
+        "var"
+    ],
     "build": {
         "directories": [
             "assets"
@@ -22,11 +25,8 @@
             },
             {
                 "directory": "vendor",
+                "not-directory": "vendor/boson-php/compiler",
                 "name": "*.php"
-            },
-            {
-                "directory": "vendor/boson-php/runtime/resources/dist",
-                "name": "*.js"
             }
         ]
     },

@@ -7,7 +7,10 @@ use Boson\ApplicationCreateInfo;
 use Boson\Component\Http\Response;
 use Boson\Component\Http\Static\FilesystemStaticProvider;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
+use Boson\WebView\Api\WebComponents\WebComponentsExtensionProvider;
+use Boson\WebView\WebViewCreateInfo;
 use Boson\Window\WindowCreateInfo;
+use Boson\Window\WindowDecoration;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -17,10 +20,19 @@ $app = new Application(new ApplicationCreateInfo(
     window: new WindowCreateInfo(
         width: 800,
         height: 600,
+        decoration: WindowDecoration::DarkMode,
+        webview: new WebViewCreateInfo(
+            extensions: [
+                ...WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
+                new WebComponentsExtensionProvider(),
+            ]
+        ),
     ),
 ));
 
-$static = new FilesystemStaticProvider([__DIR__ . '/assets']);
+$static = new FilesystemStaticProvider([
+    __DIR__ . '/assets',
+]);
 
 $app->on(static function (SchemeRequestReceived $e) use ($static): void {
     $e->response = $static->findFileByRequest($e->request);

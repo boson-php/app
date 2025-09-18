@@ -1,39 +1,40 @@
 {
-  "$schema": "https://getcomposer.org/schema.json",
-  "name": "boson-php/app",
-  "type": "project",
-  "description": "The skeleton application for the BosonPHP.",
-  "keywords": ["boson-php"],
-  "license": "MIT",
-  "require": {
-    "php": "^8.4",
-    "boson-php/http-static-provider": "^0.17.0",
-    "boson-php/runtime": "^0.17"
-  },
-  "require-dev": {
-    "boson-php/compiler": "^0.17.0",
-    "phpunit/phpunit": "^12"
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "compile": [
-        "php vendor/bin/boson init",
-        "php vendor/bin/boson compile"
-    ]
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "sort-packages": true
-  },
-  "minimum-stability": "stable",
-  "prefer-stable": true
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "boson-php/app",
+    "type": "project",
+    "description": "The skeleton application for the Boson",
+    "keywords": [
+        "boson-php"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "boson-php/http-static-provider": "^0.18",
+        "boson-php/runtime": "^0.18",
+        "boson-php/webview-ext-web-components": "^0.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "require-dev": {
+        "boson-php/compiler": "^0.18",
+        "phpunit/phpunit": "^12.3"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": "boson init",
+        "compile": "boson compile"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
