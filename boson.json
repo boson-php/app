@@ -12,7 +12,7 @@
     "entrypoint": "index.php",
     "output": "./build",
     "mount": [
-        "var"
+        "assets.override"
     ],
     "build": {
         "directories": [
@@ -26,7 +26,12 @@
             {
                 "directory": "vendor",
                 "not-directory": "vendor/boson-php/compiler",
-                "name": "*.php"
+                "name": "*.php",
+                "not-name": [
+                    "*Test.php",
+                    "*TestCase.php",
+                    ".phpstorm.meta.php"
+                ]
             }
         ]
     },
