@@ -19,31 +19,22 @@ final class Headlines extends WebComponent
 
     private int|string $timerId;
 
-    private function updateTitle(): void
-    {
-        $poller = $this->webview->window->app->poller;
-
-        $this->timerId = $poller->delay(2, function () {
-            $this->headlineTitleId++;
-
-            $this->refresh();
-
-            $this->updateTitle();
-        });
-    }
-
     public function onConnect(): void
     {
-        $this->updateTitle();
+        $this->timerId = $this->webview->window->app->poller
+            ->timer(2, function () {
+                $this->headlineTitleId++;
+
+                $this->refresh();
+            });
 
         parent::onConnect();
     }
 
     public function onDisconnect(): void
     {
-        $poller = $this->webview->window->app->poller;
-
-        $poller->cancel($this->timerId);
+        $this->webview->window->app->poller
+            ->cancel($this->timerId);
 
         parent::onDisconnect();
     }

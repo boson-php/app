@@ -7,7 +7,7 @@ use Boson\ApplicationCreateInfo;
 use Boson\Component\Http\Response;
 use Boson\Component\Http\Static\FilesystemStaticProvider;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
-use Boson\WebView\Api\WebComponents\WebComponentsExtensionProvider;
+use Boson\WebView\Api\WebComponents\WebComponentsExtension;
 use Boson\WebView\WebViewCreateInfo;
 use Boson\Window\WindowCreateInfo;
 use Boson\Window\WindowDecoration;
@@ -61,7 +61,7 @@ $app = new Application(new ApplicationCreateInfo(
                  * Extend by the `WebComponentsExtensionProvider` from
                  * "boson-php/webview-ext-web-components" dependency.
                  */
-                new WebComponentsExtensionProvider(),
+                new WebComponentsExtension(),
             ]
         ),
     ),

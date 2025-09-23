@@ -12,7 +12,7 @@
     "entrypoint": "index.php",
     "output": "./build",
     "mount": [
-        "assets.override"
+        "public"
     ],
     "build": {
         "directories": [
