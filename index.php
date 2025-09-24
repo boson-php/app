@@ -105,7 +105,7 @@ $app->webview->components->add('app-headlines', \App\Components\Headlines::class
  */
 
 $static = new FilesystemStaticProvider([
-    __DIR__ . '/assets.override',
+    __DIR__ . '/public',
     __DIR__ . '/assets',
 ]);
 
