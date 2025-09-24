@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use App\FrontController;
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
-use Boson\Component\Http\Response;
 use Boson\Component\Http\Static\FilesystemStaticProvider;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 use Boson\WebView\Api\WebComponents\WebComponentsExtension;
@@ -122,19 +122,10 @@ $static = new FilesystemStaticProvider([
  *
  */
 
-$app->on(static function (SchemeRequestReceived $e) use ($static): void {
-    //
-    // Install file (if exists) as response using static adapter...
-    //
-    if ($e->response = $static->findFileByRequest($e->request)) {
-        $e->stopPropagation();
+$controller = new FrontController($static);
 
-        return;
-    }
-
-    $response = file_get_contents(__DIR__ . '/assets/view/layout/main.html');
-
-    $e->response = new Response($response);
+$app->on(static function (SchemeRequestReceived $e) use ($controller): void {
+    $e->response = $controller($e->request);
 });
 
 
