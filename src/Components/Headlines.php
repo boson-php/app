@@ -23,7 +23,7 @@ final class Headlines extends WebComponent
     {
         $this->timerId = $this->webview->window->app->poller
             ->timer(2, function () {
-                $this->headlineTitleId++;
+                ++$this->headlineTitleId;
 
                 $this->refresh();
             });

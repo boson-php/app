@@ -10,33 +10,66 @@ Boson package is available as Composer repository and can
 be installed using the following command in a root of your project:
 
 ```bash
-composer create-project boson-php/app my-project --stability=dev --prefer-dist
+composer create-project boson-php/app boson --prefer-dist
 ```
 
 After installation, navigate to your project directory and run the application:
 
 ```bash
-cd my-project
+cd boson
 php index.php
 ```
 
 The desktop application will open.
 
-Note that BosonPHP is a tool for creating desktop applications, so you don't need a web server or browser - just run the PHP script directly from the console.
+Note that BosonPHP is a tool for creating desktop applications, 
+so you don't need a web server or browser - just run the PHP 
+script directly from the console.
 
 ## Compilation
 
-Once you've finished developing your application, you can compile it into a native executable:
+Once you've finished developing your application, you can 
+compile it into a native executable:
 
 ```bash
 composer compile
 ```
 
-The compiled executable will be available in the `build/` directory for your platform. You can configure which platforms to compile for in the `boson.json` file.
+The compiled executable will be available in the `build/` directory
+for your platform. You can configure which platforms to compile
+for in the `boson.json` file.
+
+## Other Commands
+
+**Tests**
+
+```bash
+composer test:unit
+composer test:feature
+composer test:integration
+
+# or all tests:
+composer test
+```
+
+**Code Analyse**
+
+```bash
+composer linter
+```
+
+**Code Style Analyse**
+
+```bash
+composer phpcs:fix
+
+# or check only:
+composer phpcs:check
+```
 
 ## Links
 
-- [BosonPHP repository](https://github.com/boson-php/boson).
+- [Boson repository](https://github.com/boson-php/boson).
 - [Documentation](https://bosonphp.com/doc).
 
 ## Community

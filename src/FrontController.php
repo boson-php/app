@@ -16,7 +16,7 @@ final readonly class FrontController
         private StaticProviderInterface $static,
     ) {}
 
-    public function __invoke(RequestInterface $request): ?ResponseInterface
+    public function __invoke(RequestInterface $request): ResponseInterface
     {
         $response = $this->static->findFileByRequest($request);
 
@@ -24,9 +24,8 @@ final readonly class FrontController
             return $response;
         }
 
-        return new Response(
-            body: file_get_contents(__DIR__ . '/../assets/view/layout/main.html'),
-            status: StatusCode::Ok,
-        );
+        $view = @\file_get_contents(__DIR__ . '/../assets/view/layout/main.html');
+
+        return new Response((string) $view, StatusCode::Ok);
     }
 }
