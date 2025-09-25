@@ -81,19 +81,19 @@ class SaucerTestingStub extends BaseStub
     {
         return match (true) {
             $this->isWebViewEventsStruct($type) => \FFI::cdef(<<<'C'
-                                                                  typedef void* saucer_handle;
-                                                                  typedef void* saucer_navigation;
-                                                                  typedef void* saucer_icon;
+                    typedef void* saucer_handle;
+                    typedef void* saucer_navigation;
+                    typedef void* saucer_icon;
 
-                                                                  typedef int32_t SAUCER_POLICY;
-                                                                  typedef int32_t SAUCER_STATE;
-                                                                  C)
+                    typedef int32_t SAUCER_POLICY;
+                    typedef int32_t SAUCER_STATE;
+                    C)
                 ->new($type),
             $this->isWindowEventsStruct($type) => \FFI::cdef(<<<'C'
-                                                                 typedef void* saucer_handle;
+                    typedef void* saucer_handle;
 
-                                                                 typedef int32_t SAUCER_POLICY;
-                                                                 C)
+                    typedef int32_t SAUCER_POLICY;
+                    C)
                 ->new($type),
             default => \FFI::cdef()
                 ->new('int64_t'),
