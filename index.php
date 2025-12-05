@@ -34,7 +34,7 @@ $app = new Application(new ApplicationCreateInfo(
     /**
      * @link https://bosonphp.com/doc/master/application-configuration#debug-mode
      */
-    debug: false,
+    debug: (bool) filter_var(getenv('BOSON_DEBUG'), \FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
     /**
      * @link https://bosonphp.com/doc/master/window-configuration
      */
@@ -52,6 +52,7 @@ $app = new Application(new ApplicationCreateInfo(
          */
         decoration: WindowDecoration::DarkMode,
         webview: new WebViewCreateInfo(
+            devTools: false,
             extensions: [
                 /**
                  * Load default webview extensions.
@@ -62,7 +63,7 @@ $app = new Application(new ApplicationCreateInfo(
                  * "boson-php/webview-ext-web-components" dependency.
                  */
                 new WebComponentsExtension(),
-            ]
+            ],
         ),
     ),
 ));
@@ -105,8 +106,8 @@ $app->webview->components->add('app-headlines', \App\Components\Headlines::class
  */
 
 $static = new FilesystemStaticProvider([
-    __DIR__ . '/public',
-    __DIR__ . '/assets',
+    __DIR__ . '/assets/private',
+    __DIR__ . '/assets/public',
 ]);
 
 

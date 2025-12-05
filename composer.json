@@ -3,15 +3,13 @@
     "name": "boson-php/app",
     "type": "project",
     "description": "The skeleton application for the Boson",
-    "keywords": [
-        "boson-php"
-    ],
+    "keywords": ["boson", "boson-php", "application", "skeleton"],
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "boson-php/http-static-provider": "^0.18",
-        "boson-php/runtime": "^0.18",
-        "boson-php/webview-ext-web-components": "^0.18"
+        "boson-php/http-static-provider": "^0.19",
+        "boson-php/runtime": "^0.19",
+        "boson-php/webview-ext-web-components": "^0.19"
     },
     "autoload": {
         "psr-4": {
@@ -19,13 +17,12 @@
         }
     },
     "require-dev": {
-        "boson-php/compiler": "^0.18",
-        "ffi/var-dumper": "^1.0",
+        "boson-php/compiler": "^0.19",
         "friendsofphp/php-cs-fixer": "^3.88",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-strict-rules": "^2.0",
-        "phpunit/phpunit": "^12.3",
-        "symfony/var-dumper": "^7.3"
+        "phpunit/phpunit": "^12.4",
+        "symfony/var-dumper": "^6.4|^7.0|^8.0"
     },
     "autoload-dev": {
         "psr-4": {
@@ -40,7 +37,7 @@
     },
     "scripts": {
         "post-create-project-cmd": "boson init",
-        "compile": "boson compile --edition=minimal",
+        "compile": "boson compile",
         "test": ["@test:unit", "@test:integration", "@test:feature"],
         "test:unit": "phpunit --testsuite=unit --testdox",
         "test:feature": "phpunit --testsuite=feature --testdox",

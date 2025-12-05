@@ -1,22 +1,46 @@
 {
     "name": "app",
-    "arch": [
-        "amd64",
-        "aarch64"
-    ],
-    "platform": [
-        "windows",
-        "linux",
-        "macos"
+    "target": [
+        {
+            "type": "windows",
+            "arch": "amd64",
+            "ini": {
+                "opcache.enable": true,
+                "opcache.enable_cli": true
+            }
+        },
+        {
+            "type": "linux",
+            "arch": "amd64"
+        },
+        {
+            "type": "linux",
+            "arch": "arm64"
+        },
+        {
+            "type": "macos",
+            "arch": "amd64"
+        },
+        {
+            "type": "macos",
+            "arch": "arm64"
+        },
+        {
+            "type": "phar"
+        }
     ],
     "entrypoint": "index.php",
     "output": "./build",
+    "extensions": [
+        "ctype",
+        "iconv"
+    ],
     "mount": [
-        "public"
+        "assets/public"
     ],
     "build": {
         "directories": [
-            "assets"
+            "assets/private"
         ],
         "finder": [
             {
@@ -36,6 +60,8 @@
         ]
     },
     "ini": {
-        "memory_limit": "128M"
+        "memory_limit": "256M",
+        "opcache.enable": false,
+        "opcache.enable_cli": false
     }
 }

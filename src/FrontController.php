@@ -24,7 +24,7 @@ final readonly class FrontController
             return $response;
         }
 
-        $view = @\file_get_contents(__DIR__ . '/../assets/view/layout/main.html');
+        $view = @\file_get_contents(__DIR__ . '/../assets/private/view/layout/main.html');
 
         return new Response((string) $view, StatusCode::Ok);
     }
