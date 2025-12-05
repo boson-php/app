@@ -16,11 +16,18 @@ composer create-project boson-php/app boson --prefer-dist
 After installation, navigate to your project directory and run the application:
 
 ```bash
-cd boson
 php index.php
 ```
 
 The desktop application will open.
+
+<div align="center">
+
+| <img src="https://habrastorage.org/webt/6z/uy/7n/6zuy7nzopxkjq83nnmlpafhiupq.png" /> | <img src="https://habrastorage.org/webt/jb/39/la/jb39laksyaksq4nhrhazchuw33o.png" /> | <img src="https://habrastorage.org/webt/y8/6f/hz/y86fhz4e1vwv0rx2wnlwcfmprmo.png" /> |
+|:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+|                                        Linux                                         |                                        macOS                                         |                                       Windows                                        |
+
+</div>
 
 Note that BosonPHP is a tool for creating desktop applications, 
 so you don't need a web server or browser - just run the PHP 
@@ -32,7 +39,7 @@ Once you've finished developing your application, you can
 compile it into a native executable:
 
 ```bash
-composer compile
+php vendor/bin/boson compile
 ```
 
 The compiled executable will be available in the `build/` directory
