@@ -6,7 +6,7 @@ use App\FrontController;
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
 use Boson\Component\Http\Static\FilesystemStaticProvider;
-use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
+use Boson\WebView\Api\Schemes\Event\SchemeRequestReceive;
 use Boson\WebView\Api\WebComponents\WebComponentsExtension;
 use Boson\WebView\WebViewCreateInfo;
 use Boson\Window\WindowCreateInfo;
@@ -34,7 +34,7 @@ $app = new Application(new ApplicationCreateInfo(
     /**
      * @link https://bosonphp.com/doc/master/application-configuration#debug-mode
      */
-    debug: (bool) filter_var(getenv('BOSON_DEBUG'), \FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
+    debug: true || (bool) filter_var(getenv('BOSON_DEBUG'), \FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
     /**
      * @link https://bosonphp.com/doc/master/window-configuration
      */
@@ -50,7 +50,7 @@ $app = new Application(new ApplicationCreateInfo(
         /**
          * @link https://bosonphp.com/doc/master/window-configuration#window-decorations
          */
-        decoration: WindowDecoration::DarkMode,
+        decoration: WindowDecoration::Full,
         webview: new WebViewCreateInfo(
             devTools: false,
             extensions: [
@@ -125,11 +125,13 @@ $static = new FilesystemStaticProvider([
 
 $controller = new FrontController($static);
 
-$app->on(static function (SchemeRequestReceived $e) use ($controller): void {
+$app->on(static function (SchemeRequestReceive $e) use ($controller): void {
     $e->response = $controller($e->request);
 });
 
-
+$app->on(static function (\Boson\WebView\Event\WebViewMessageReceived $e) {
+    dump($e->message);
+});
 
 /**
  * -----------------------------------------------------------------------------

@@ -7,9 +7,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "boson-php/http-static-provider": "^0.19",
-        "boson-php/runtime": "^0.19",
-        "boson-php/webview-ext-web-components": "^0.19"
+        "boson-php/http-static-provider": "^0.20",
+        "boson-php/runtime": "^0.20",
+        "boson-php/webview-ext-web-components": "^0.20"
     },
     "autoload": {
         "psr-4": {
@@ -17,7 +17,8 @@
         }
     },
     "require-dev": {
-        "boson-php/compiler": "^0.19",
+        "boson-php/compiler": "^0.20",
+        "filp/whoops": "^2.18",
         "friendsofphp/php-cs-fixer": "^3.88",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-strict-rules": "^2.0",
